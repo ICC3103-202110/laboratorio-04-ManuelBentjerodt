@@ -1,15 +1,23 @@
 function view(counter){
-    
+    return(`\n      Counter: ${counter} \n      (+)(-)\n`);
 }
 
 function update(msg,counter){
+    if(msg==="+") return counter+1;
+    else if(msg==="-") return counter-1;
+    else return counter;
 
 }
 
 function app(counter){
-    const currentview=view(counter);
+    while(true){
+        const currentview=view(counter);
+        console.clear();
+        console.log(view);
+        const msg=prompt("What would you do? ");
+    }
 }
 
-let prompt=require("prompt-sync")()
-const input = prompt("Insert something: ")
-console.log(input);
+app(0);
+
+const prompt=require("prompt-sync")()
