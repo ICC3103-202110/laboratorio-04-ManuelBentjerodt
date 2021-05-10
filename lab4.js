@@ -1,5 +1,5 @@
 function view(counter){
-    return(`\n      Counter: ${counter} \n      (+)(-)\n`);
+    return(`\n      Counter: ${counter} \n\n      (+)(-)\n\n      (q) for quit\n`);
 }
 
 function update(msg,counter){
@@ -11,13 +11,14 @@ function update(msg,counter){
 
 function app(counter){
     while(true){
-        const currentview=view(counter);
         console.clear();
-        console.log(view);
+        const currentview=view(counter);
+        console.log(currentview)
         const msg=prompt("What would you do? ");
+        if(msg==="q") break;
+        else  counter = update(msg,counter);
     }
 }
 
+const prompt=require("prompt-sync")();
 app(0);
-
-const prompt=require("prompt-sync")()
